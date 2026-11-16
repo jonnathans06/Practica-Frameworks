@@ -1,0 +1,42 @@
+:root {
+    font-family: Inter, system-ui, Arial, sans-serif;
+
+    --color-primary: #2563EB;
+    --color-primary-dark: #1D4ED8;
+    --color-primary-light: #DBEAFE;
+
+    --color-text: #111827;
+    --color-text-secondary: #6B7280;
+
+    --color-background: #FFFFFF;
+    --color-border: #E5E7EB;
+}
+
+/* Configuración general */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: inherit;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+/* Elementos de formulario */
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+#root {
+    min-height: 100vh;
+}

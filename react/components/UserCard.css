@@ -1,0 +1,45 @@
+.tarjeta-usuario {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 20px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+
+    background-color: var(--color-background);
+
+    transition: border-color 0.2s;
+}
+
+.tarjeta-usuario:hover {
+    border-color: var(--color-primary);
+}
+
+.icono-usuario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.informacion-usuario h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.informacion-usuario p {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    margin-top: 5px;
+}
