@@ -1,3 +1,4 @@
+
 .encabezado {
     width: 100%;
     background-color: var(--color-primary);
@@ -18,12 +19,10 @@
     width: 48px;
     height: 48px;
     object-fit: contain;
-}
 
-.separador {
-    width: 1px;
-    height: 48px;
-    background-color: rgba(255, 255, 255, 0.7);
+    box-sizing: content-box;
+    padding-right: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .titulo-encabezado h1 {
@@ -37,6 +36,7 @@
     opacity: 0.9;
 }
 
+/* Contenedor principal */
 .principal {
     width: 100%;
     max-width: 1100px;
@@ -44,6 +44,7 @@
     padding: 0 24px;
 }
 
+/* Encabezado del gestor */
 .encabezado-gestor {
     margin-bottom: 24px;
 }
@@ -59,10 +60,7 @@
     font-size: 16px;
 }
 
-.formulario-busqueda {
-    margin-bottom: 28px;
-}
-
+/* Buscador */
 .campo-busqueda {
     width: 100%;
     display: flex;
@@ -76,6 +74,8 @@
 
     color: var(--color-text-secondary);
     background-color: var(--color-background);
+
+    margin-bottom: 28px;
 
     transition: border-color 0.2s;
 }
@@ -98,18 +98,7 @@
     color: var(--color-text-secondary);
 }
 
-.solo-lectores {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
+/* Encabezado de la lista */
 .encabezado-lista {
     display: flex;
     align-items: center;
@@ -122,6 +111,7 @@
     font-weight: 600;
 }
 
+/* Botón de favoritos */
 .boton-favoritos {
     display: flex;
     align-items: center;
@@ -150,6 +140,15 @@
     color: #FFFFFF;
 }
 
+/* Lista de usuarios */
+.lista-usuarios {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+/* Adaptación a dispositivos pequeños */
 @media (max-width: 600px) {
     .contenido-encabezado {
         padding: 16px;
