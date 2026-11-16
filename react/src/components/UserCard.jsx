@@ -1,9 +1,8 @@
-
-import { UserRound } from 'lucide-react';
+import { Star, UserRound } from 'lucide-react';
 
 import './UserCard.css';
 
-function UserCard({ usuario }) {
+function UserCard({ usuario, cambiarFavorito, esFavorito }) {
     return (
         <article className="tarjeta-usuario">
             <div className="icono-usuario">
@@ -15,6 +14,14 @@ function UserCard({ usuario }) {
                 <p>{usuario.email}</p>
                 <p>{usuario.address.city}</p>
             </div>
+
+            <button
+                type="button"
+                className={`boton-favorito ${esFavorito ? 'activo' : ''}`}
+                onClick={() => cambiarFavorito(usuario.id)}
+            >
+                <Star size={20} fill={esFavorito ? 'currentColor' : 'none'} />
+            </button>
         </article>
     );
 }

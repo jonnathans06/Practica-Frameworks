@@ -43,3 +43,26 @@
     font-size: 14px;
     margin-top: 5px;
 }
+
+.boton-favorito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--color-text-secondary);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.boton-favorito.activo {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.boton-favorito:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+}

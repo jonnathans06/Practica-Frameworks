@@ -7,9 +7,10 @@ import reactIcono from './assets/react-icono.svg';
 
 function App() {
     const [usuarios, setUsuarios] = useState([]);
+    const [usuariosFavoritos, setUsuariosFavoritos] = useState([]);
+    const [busqueda, setBusqueda] = useState('');
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(null);
-
     const [mostrarFavoritos, setMostrarFavoritos] = useState(false);
 
     useEffect(() => {
@@ -29,6 +30,14 @@ function App() {
 
     function cambiarVistaFavoritos() {
         setMostrarFavoritos(anterior => !anterior);
+    }
+
+    function cambiarFavorito(id) {
+        if (usuariosFavoritos.includes(id)) {
+            setUsuariosFavoritos(usuariosFavoritos.filter(favorito => favorito !== id));
+        } else {
+            setUsuariosFavoritos([...usuariosFavoritos, id]);
+        }
     }
 
     return (
@@ -57,6 +66,8 @@ function App() {
                         <input
                             type="search"
                             placeholder="Buscar por nombre..."
+                            value={busqueda}
+                            onChange={evento => setBusqueda(evento.target.value)}
                         />
                     </label>
 
@@ -70,7 +81,7 @@ function App() {
                             onClick={cambiarVistaFavoritos}
                         >
                             <Star size={17} fill="currentColor" />
-                            Favoritos: 0
+                            Favoritos: {usuariosFavoritos.length}
                         </button>
                     </section>
 
@@ -80,9 +91,19 @@ function App() {
                         ) : error ? (
                             <p>{error}</p>
                         ) : (
-                            usuarios.map(usuario => (
-                                <UserCard key={usuario.id} usuario={usuario} />
-                            ))
+                            usuarios
+                                .filter(usuario =>
+                                    (!mostrarFavoritos || usuariosFavoritos.includes(usuario.id)) &&
+                                    usuario.name.toLowerCase().includes(busqueda.toLowerCase())
+                                )
+                                .map(usuario => (
+                                    <UserCard
+                                        key={usuario.id}
+                                        usuario={usuario}
+                                        cambiarFavorito={cambiarFavorito}
+                                        esFavorito={usuariosFavoritos.includes(usuario.id)}
+                                    />
+                                ))
                         )}
                     </section>
                 </section>
