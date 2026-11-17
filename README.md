@@ -121,3 +121,20 @@ Las capturas de pantalla de las aplicaciones y sus pruebas se encuentran en la c
 - Angular: funcionamiento de la aplicación, búsqueda y favoritos.
 - React: funcionamiento de la aplicación, búsqueda y favoritos.
 - Pruebas: ejecución satisfactoria de las pruebas unitarias.
+
+## 7. Pruebas unitarias
+
+Se implementaron pruebas unitarias en ambos frameworks
+para comprobar el funcionamiento de sus servicios y componentes.
+
+### Angular
+- Creación del componente principal.
+- Filtrado de usuarios por nombre.
+
+Resultado: 2 pruebas aprobadas.
+
+### React
+- Consulta correcta de usuarios.
+- Manejo de errores en la respuesta de la API.
+
+Resultado: 2 pruebas aprobadas.
