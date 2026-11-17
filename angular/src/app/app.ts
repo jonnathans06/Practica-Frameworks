@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { UsuariosService } from './services/usuarios.service';
 import { UserCard } from './components/user-card/user-card';
 import { Usuario } from './models/usuario.interface';
@@ -19,6 +19,7 @@ import {
 export class App implements OnInit {
 
     private usuariosService = inject(UsuariosService);
+    private cdr = inject(ChangeDetectorRef);
 
     usuarios: Usuario[] = [];
     usuariosFavoritos: number[] = [];
@@ -37,9 +38,11 @@ export class App implements OnInit {
             error: () => {
                 this.error = 'No se pudieron obtener los usuarios';
                 this.cargando = false;
+                this.cdr.markForCheck();
             },
             complete: () => {
                 this.cargando = false;
+                this.cdr.markForCheck();
             }
         });
     }
