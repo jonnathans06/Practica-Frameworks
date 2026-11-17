@@ -1,0 +1,162 @@
+.barra-superior {
+    width: 100%;
+    height: 72px;
+    background-color: #DC2626;
+}
+
+.contenido-barra {
+    max-width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.marca-angular {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.marca-angular img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.nombre-aplicacion {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.encabezado {
+    margin-bottom: 28px;
+}
+
+.encabezado h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+.encabezado p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+}
+
+.controles {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    max-width: 550px;
+    padding: 0 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text-secondary);
+}
+
+.buscador:focus-within {
+    border-color: var(--color-primary);
+}
+
+.buscador input {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--color-text);
+    font-size: 14px;
+}
+
+.boton-favoritos {
+    padding: 12px 20px;
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-favoritos:hover,
+.boton-favoritos.activo {
+    background-color: var(--color-primary-dark);
+}
+
+.resumen {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.resumen h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.contador-favoritos {
+    color: var(--color-text-secondary);
+    font-size: 13px;
+}
+
+.lista-usuarios {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.mensaje-estado {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+}
+
+@media (max-width: 650px) {
+    .contenido-barra {
+        padding: 0 16px;
+    }
+
+    .contenedor {
+        padding: 30px 16px;
+    }
+
+    .nombre-aplicacion {
+        font-size: 13px;
+    }
+
+    .controles {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .buscador {
+        max-width: none;
+    }
+
+    .resumen h2 {
+        font-size: 17px;
+    }
+}

@@ -1,4 +1,110 @@
+<header class="barra-superior">
+
+    <div class="contenido-barra">
+
+        <div class="marca-angular">
+            <img src="/assets/angular-icono.svg" alt="Angular">
+            <span>Angular</span>
+        </div>
+
+        <span class="nombre-aplicacion">Directorio de Usuarios</span>
+
+    </div>
+
+</header>
 
 <main class="contenedor">
-    <h1>Gestión de usuarios</h1>
+
+    <section class="encabezado">
+
+        <h1>Usuarios</h1>
+
+        <p>
+            Consulta, busca y administra tu directorio de usuarios.
+        </p>
+
+    </section>
+
+    <section class="controles">
+
+        <div class="buscador">
+
+            <svg
+                lucideSearch
+                [attr.width]="19"
+                [attr.height]="19"
+            ></svg>
+
+            <input
+                type="search"
+                placeholder="Buscar usuario por nombre..."
+                [value]="busqueda"
+                (input)="busqueda = $any($event.target).value"
+            >
+
+        </div>
+
+        <button
+            type="button"
+            class="boton-favoritos"
+            [class.activo]="mostrarFavoritos"
+            (click)="cambiarVistaFavoritos()"
+        >
+            {{ mostrarFavoritos ? 'Mostrar todos' : 'Ver favoritos' }}
+        </button>
+
+    </section>
+
+    <section class="resultados">
+
+        <div class="resumen">
+
+            <h2>
+                {{ mostrarFavoritos ? 'Mis favoritos' : 'Todos los usuarios' }}
+            </h2>
+
+            <span class="contador-favoritos">
+                {{ usuariosFavoritos.length }} favoritos
+            </span>
+
+        </div>
+
+        @if (cargando) {
+
+            <p class="mensaje-estado">Cargando usuarios...</p>
+
+        }
+
+        @else if (error) {
+
+            <p class="mensaje-estado">{{ error }}</p>
+
+        }
+
+        @else {
+
+            <div class="lista-usuarios">
+
+                @for (usuario of usuariosFiltrados; track usuario.id) {
+
+                    <app-user-card
+                        [usuario]="usuario"
+                        [esFavorito]="usuariosFavoritos.includes(usuario.id)"
+                        (cambiarFavorito)="cambiarFavorito($event)"
+                    />
+
+                } @empty {
+
+                    <p class="mensaje-estado">
+                        No se encontraron usuarios.
+                    </p>
+
+                }
+
+            </div>
+
+        }
+
+    </section>
+
 </main>
