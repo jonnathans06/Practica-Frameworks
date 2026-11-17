@@ -1,0 +1,46 @@
+<article class="tarjeta-usuario">
+
+    <div class="avatar-usuario">
+        <svg
+            lucideUserRound
+            [attr.width]="24"
+            [attr.height]="24"
+        ></svg>
+    </div>
+
+    <div class="informacion-usuario">
+
+        <h3>{{ usuario.name }}</h3>
+
+        <p class="correo">
+            {{ usuario.email }}
+        </p>
+
+        <div class="ubicacion">
+            <svg
+                lucideMapPin
+                [attr.width]="15"
+                [attr.height]="15"
+            ></svg>
+
+            <span>{{ usuario.address.city }}</span>
+        </div>
+
+    </div>
+
+    <button
+        type="button"
+        class="boton-favorito"
+        [class.activo]="esFavorito"
+        (click)="cambiarFavorito.emit(usuario.id)"
+        [attr.aria-label]="esFavorito ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+    >
+        <svg
+            lucideStar
+            [attr.width]="20"
+            [attr.height]="20"
+            [attr.fill]="esFavorito ? 'currentColor' : 'none'"
+        ></svg>
+    </button>
+
+</article>
